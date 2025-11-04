@@ -12,25 +12,23 @@ public class Juego {
     // --- NÚCLEO: Definición de Datos (FASE 1) ---
     // Esta parte os la damos HECHA. Es el "contrato" del núcleo.
 
-    private static String descripcionJuego = "No sabes qué ha pasado. Justo cuando terminabas las clases te quedaste el último como siempre recogiendo tus cosas. " +
-            "Pero algo pasó. Lo último que recuerdas es que sentiste mucho frío y todo se volvió oscuro. Ahora estás en tu clase, pero es de noche y el instituto está cerrado." +
-            "¿Nadie te ha visto? ¿Por qué las limpiadoras no te han despertado?";
-
+    private static String descripcionJuego = "Te has enterado de que el interior de un castillo que está por tu zona se encuentra un tesoro, y nadie sabe lo que contiene.\n" +
+            " Decidiste ir a buscarlo, pero cuando consiguiste entrar todas las puertas y ventanas se cerraron, quedando atrapado.";
     // El mapa de habitaciones.
     // TODO: (Skin) ¡Rellenad esto con vuestras descripciones!
     private static String[] habitaciones = {
-            "Estás en tu aula, el aula 103. Hay una puerta a la DERECHA.",  // Posición 0
-            "Estás en el pasillo principal. Hay puertas a la DERECHA y a la IZQUIDA.", // Posición 1
-            "Estás en el aula 105. Hay una puerta a la IZQUIERDA y has visto una 'llave' en una mesa.", // Posición 2
+            "Estás en un salón grande. Todo está muy oscuro, pero ves lo suficiente para percatarte de que hay una lampara de aceite. La enciendes y ves una escalera DERECHA.",  // Posición 0
+            "Ahora te encuentras en una habitación con mucha humedad. Escuchas un sonido estraño que proviene de una habitación que está a tu IZQUIERDA.", // Posición 1
+            "Resulta que el ruido venía de un armario antigüo con mucha profundidad. Dentro hay una llave.", // Posición 2
             // Borra las habitaciones y escribe las tuyas
     };
 
     // Los objetos que hay en cada habitación.
     // TODO: (Skin) Rellenad esto con vuestros objetos
     private static String[][] objetosMapa = {
-            {null, null},           // Objetos en Habitación 0
+            {"lamparaDeAceite", null},           // Objetos en Habitación 0
             {null, null},           // Objetos en Habitación 1
-            {"llave", "nota"},      // Objetos en Habitación 2
+            {"llave", null},      // Objetos en Habitación 2
     };
 
     // El inventario del jugador. Tamaño fijo.
@@ -49,7 +47,7 @@ public class Juego {
 
         System.out.println("¡Bienvenido a 'TU PROPIA AVENTURA'!");
         System.out.println("------------------------------------------");
-
+        System.out.println(descripcionJuego);
         // TODO 1a: Muestra la descripción general del juego
 
         // TODO 1b: Muestra la descripción de la primera habitación

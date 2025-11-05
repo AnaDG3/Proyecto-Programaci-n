@@ -49,10 +49,12 @@ public class Juego {
         System.out.println("------------------------------------------");
 
         // TODO 1a: Muestra la descripción general del juego
+        System.out.println(descripcionJuego);
+
 
         // TODO 1b: Muestra la descripción de la primera habitación
         // Pista: System.out.println(habitaciones[...]);
-
+        System.out.println(habitaciones[0]);
 
         // TODO 2: Iniciar el bucle principal del juego (game loop)
         while (jugando) {

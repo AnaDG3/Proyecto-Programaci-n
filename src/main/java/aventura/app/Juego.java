@@ -70,12 +70,14 @@ public class Juego {
              "ir derecha", "ir izquierda", "coger [objeto]" y "salir".
              */
 
+            if (comando.equals("ayuda")) {
+                mostrarAyuda();
+            } else {
+                System.out.println("Comando no reconocido. Escribe \"ayuda\" para ver los comandos reconocibles.");
 
-        }
-
-        System.out.println("¡Gracias por jugar!");
-        scanner.close();
-    }
+                System.out.println("¡Gracias por jugar!");
+                scanner.close();
+            }
 
     /*
     (Opcional - Buenas Prácticas)
@@ -84,4 +86,18 @@ public class Juego {
     private static void procesarComandoCoger(String comando) { ... }
     private static void mostrarInfoHabitacion() { ... }
     */
+        }
+    }
+
+    private static void mostrarAyuda () {
+        System.out.println("\n--- COMANDOS DISPONIBLES ---");
+        System.out.println("ayuda: Muestra esta lista de comandos. ");
+        System.out.println("mirar: Describe tu ubicacion actual y los objetos visibles.");
+        System.out.println("inventario: Muestra los objetos que llevas contigo.");
+        System.out.println("ir derecha: Intenta moverse a la habitacion de la derecha.");
+        System.out.println("ir izquierda: Intenta moverse a la habitacion de la izquierda.");
+        System.out.println("coger [objeto]: Intenta recoger un objeto visible (ej: coger llave).");
+        System.out.println("salir: Finaliza el juego.");
+        System.out.println("--------------------------");
+    }
 }

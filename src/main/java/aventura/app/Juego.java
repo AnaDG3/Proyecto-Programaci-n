@@ -60,8 +60,9 @@ public class Juego {
         while (jugando) {
 
             // TODO 3: Leer el comando del usuario por teclado
-            System.out.print("\n> ");
+            System.out.print("Introduce un comando:\n> ");
             //String comando = ...;
+            String comando = scanner.nextLine();
 
             /*
             TODO 4: Crear un 'switch' o una estructura 'if-else if'
@@ -69,12 +70,30 @@ public class Juego {
              Debe gestionar como mínimo: "ayuda", "mirar", "inventario",
              "ir derecha", "ir izquierda", "coger [objeto]" y "salir".
              */
+            if (comando.equals("coger objeto")) {
+                if (habitacionActual==0 && hayObjeto(habitacionActual)) {
+                    System.out.println("Has encontrado una lámpara de aceite.");
+                    inventario[0] = "lamparaDeAceite";
+                }else if (habitacionActual==2 && hayObjeto((habitacionActual+2))) {
+                    inventario[1] = "llave";
+                    System.out.println("Has encontrado una llave.");
+                }
+            }
 
 
         }
 
         System.out.println("¡Gracias por jugar!");
         scanner.close();
+    }
+    public static boolean hayObjeto(int habitacion){
+        boolean objetoEncontrado=false;
+        if(habitacion==0 && objetosMapa[habitacionActual][0]!=null){
+            objetoEncontrado=true;
+        }else if(habitacion==2 && objetosMapa[habitacionActual][1]!=null){
+            objetoEncontrado=true;
+        }
+        return objetoEncontrado;
     }
 
     /*

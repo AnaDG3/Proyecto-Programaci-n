@@ -39,7 +39,17 @@ public class Juego {
 
     // --- FIN DE LA DEFINICIÓN DE DATOS ---
 
-
+    private static void mostrarAyuda() {
+        System.out.println("\n--- COMANDOS DISPONIBLES ---");
+        System.out.println("ayuda: Muestra esta lista de comandos.");
+        System.out.println("mirar: Describe tu ubicación actual y los objetos visibles.");
+        System.out.println("inventario: Muestra los objetos que llevas contigo.");
+        System.out.println("ir derecha: Intenta moverse a la habitación de la derecha.");
+        System.out.println("ir izquierda: Intenta moverse a la habitación de la izquierda.");
+        System.out.println("coger [objeto]: Intenta recoger un objeto visible (ej: coger llave).");
+        System.out.println("salir: Finaliza el juego.");
+        System.out.println("--------------------------");
+    }
     public static void main(String[] args) {
         // Puedes utilizar la clase MiEntradaSalida, que viviría en el paquete io
         Scanner scanner = new Scanner(System.in);
@@ -60,8 +70,9 @@ public class Juego {
         while (jugando) {
 
             // TODO 3: Leer el comando del usuario por teclado
-            System.out.print("\n> ");
+            System.out.print("Introduce un comando:\n> ");
             //String comando = ...;
+            String comando = scanner.nextLine();
 
             /*
             TODO 4: Crear un 'switch' o una estructura 'if-else if'
@@ -69,12 +80,75 @@ public class Juego {
              Debe gestionar como mínimo: "ayuda", "mirar", "inventario",
              "ir derecha", "ir izquierda", "coger [objeto]" y "salir".
              */
-
+            switch (comando) {
+                case "coger objeto":
+                    if (habitacionActual == 0 && hayObjeto(habitacionActual)) {
+                        System.out.println("Has encontrado una lámpara de aceite.");
+                        inventario[0] = "lamparaDeAceite";
+                    } else if (habitacionActual == 2 && hayObjeto((habitacionActual + 2))) {
+                        inventario[1] = "llave";
+                        System.out.println("Has encontrado una llave.");
+                    }
+                    break;
+                case "ayuda":
+                    mostrarAyuda();
+                    break;
+                case "ir derecha":
+                    if (habitacionActual < habitaciones.length - 1) {
+                        habitacionActual++;
+                        System.out.println("\nTe has movido a la derecha.");
+                        System.out.println(habitaciones[habitacionActual]);
+                    } else {
+                        System.out.println("No puedes ir más a la derecha. Has llegado al final del mapa.");
+                    }
+                    break;
+                case "ir izquierda":
+                    switch (habitacionActual) {
+                        case 0:
+                            System.out.println("No hay nada a tu izquierda.");
+                            break;
+                        case 1:
+                            habitacionActual++;
+                            System.out.println(habitaciones[2]);
+                    }
+                    break;
+                case "mirar":
+                    System.out.println(habitaciones[habitacionActual]);
+                    break;
+                case "salir":
+                    jugando = false;
+                    break;
+                case "inventario":
+                    mostrarInventario(inventario);
+                    break;
+                case "regresar":
+                    habitacionActual--;
+                    System.out.println("Has regresado a la habitación " + (habitacionActual + 1));
+                default:
+                    System.out.println("Comando desconocido. Escribe 'ayuda' para ver los comandos disponibles.");
 
         }
 
         System.out.println("¡Gracias por jugar!");
         scanner.close();
+    }
+
+
+    }
+
+    public static boolean hayObjeto ( int habitacion){
+        boolean objetoEncontrado = false;
+        if (habitacion == 0 && objetosMapa[habitacionActual][0] != null) {
+            objetoEncontrado = true;
+        } else if (habitacion == 2 && objetosMapa[habitacionActual][1] != null) {
+            objetoEncontrado = true;
+        }
+        return objetoEncontrado;
+    }
+    public static void mostrarInventario(String[] inventario) {
+        for (int i = 0; i < inventario.length; i++) {
+            System.out.println(inventario[i]);
+        }
     }
 
     /*

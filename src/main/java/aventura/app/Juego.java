@@ -48,6 +48,7 @@ public class Juego {
         System.out.println("ir izquierda: Intenta moverse a la habitación de la izquierda.");
         System.out.println("coger [objeto]: Intenta recoger un objeto visible (ej: coger llave).");
         System.out.println("salir: Finaliza el juego.");
+        System.out.println("regresar: regresa a la habitación anterio");
         System.out.println("--------------------------");
     }
     public static void main(String[] args) {

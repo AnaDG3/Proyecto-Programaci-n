@@ -83,12 +83,21 @@ public class Juego {
                 case "ayuda":
                     break;
                 case "ir derecha":
+                    if (habitacionActual < habitaciones.length - 1) {
+                        habitacionActual++;
+                        System.out.println("\nTe has movido a la derecha.");
+                        System.out.println(habitaciones[habitacionActual]);
+                    } else {
+                        System.out.println("No puedes ir más a la derecha. Has llegado al final del mapa.");
+                    }
                     break;
                 case "ir izquierda":
                     break;
                 case "mirar":
+                    System.out.println(habitaciones[habitacionActual]);
                     break;
                 case "salir":
+                    jugando = false;
                     break;
                 case "inventario":
                     break;

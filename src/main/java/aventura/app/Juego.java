@@ -60,8 +60,9 @@ public class Juego {
         while (jugando) {
 
             // TODO 3: Leer el comando del usuario por teclado
-            System.out.print("\n> ");
+            System.out.print("Introduce un comando:\n> ");
             //String comando = ...;
+            String comando = scanner.nextLine();
 
             /*
             TODO 4: Crear un 'switch' o una estructura 'if-else if'
@@ -69,27 +70,30 @@ public class Juego {
              Debe gestionar como mínimo: "ayuda", "mirar", "inventario",
              "ir derecha", "ir izquierda", "coger [objeto]" y "salir".
              */
+            if (comando.equals("coger objeto")) {
+                if (habitacionActual == 0 && hayObjeto(habitacionActual)) {
+                    System.out.println("Has encontrado una lámpara de aceite.");
+                    inventario[0] = "lamparaDeAceite";
+                } else if (habitacionActual == 2 && hayObjeto((habitacionActual + 2))) {
+                    inventario[1] = "llave";
+                    System.out.println("Has encontrado una llave.");
+                }
+            }
 
             if (comando.equals("ayuda")) {
                 mostrarAyuda();
             } else {
                 System.out.println("Comando no reconocido. Escribe \"ayuda\" para ver los comandos reconocibles.");
 
-                System.out.println("¡Gracias por jugar!");
-                scanner.close();
+
             }
 
-    /*
-    (Opcional - Buenas Prácticas)
-    Si el 'switch' se vuelve muy grande, podéis crear métodos privados
-    para organizar el código, por ejemplo:
-    private static void procesarComandoCoger(String comando) { ... }
-    private static void mostrarInfoHabitacion() { ... }
-    */
+            System.out.println("¡Gracias por jugar!");
+            scanner.close();
         }
     }
 
-    private static void mostrarAyuda () {
+    private static void mostrarAyuda() {
         System.out.println("\n--- COMANDOS DISPONIBLES ---");
         System.out.println("ayuda: Muestra esta lista de comandos. ");
         System.out.println("mirar: Describe tu ubicacion actual y los objetos visibles.");
@@ -100,4 +104,23 @@ public class Juego {
         System.out.println("salir: Finaliza el juego.");
         System.out.println("--------------------------");
     }
+
+    public static boolean hayObjeto(int habitacion){
+        boolean objetoEncontrado=false;
+        if(habitacion==0 && objetosMapa[habitacionActual][0]!=null){
+            objetoEncontrado=true;
+        }else if(habitacion==2 && objetosMapa[habitacionActual][1]!=null){
+            objetoEncontrado=true;
+        }
+        return objetoEncontrado;
+    }
+
+    /*
+    (Opcional - Buenas Prácticas)
+    Si el 'switch' se vuelve muy grande, podéis crear métodos privados
+    para organizar el código, por ejemplo:
+    private static void procesarComandoCoger(String comando) { ... }
+    private static void mostrarInfoHabitacion() { ... }
+    */
 }
+

@@ -70,14 +70,30 @@ public class Juego {
              Debe gestionar como mínimo: "ayuda", "mirar", "inventario",
              "ir derecha", "ir izquierda", "coger [objeto]" y "salir".
              */
-            if (comando.equals("coger objeto")) {
-                if (habitacionActual==0 && hayObjeto(habitacionActual)) {
-                    System.out.println("Has encontrado una lámpara de aceite.");
-                    inventario[0] = "lamparaDeAceite";
-                }else if (habitacionActual==2 && hayObjeto((habitacionActual+2))) {
-                    inventario[1] = "llave";
-                    System.out.println("Has encontrado una llave.");
-                }
+            switch (comando) {
+                case "coger objeto":
+                    if (habitacionActual == 0 && hayObjeto(habitacionActual)) {
+                        System.out.println("Has encontrado una lámpara de aceite.");
+                        inventario[0] = "lamparaDeAceite";
+                    } else if (habitacionActual == 2 && hayObjeto((habitacionActual + 2))) {
+                        inventario[1] = "llave";
+                        System.out.println("Has encontrado una llave.");
+                    }
+                    break;
+                case "ayuda":
+                    break;
+                case "ir derecha":
+                    break;
+                case "ir izquierda":
+                    break;
+                case "mirar":
+                    break;
+                case "salir":
+                    break;
+                case "inventario":
+                    break;
+                default:
+
             }
 
 
@@ -86,12 +102,13 @@ public class Juego {
         System.out.println("¡Gracias por jugar!");
         scanner.close();
     }
-    public static boolean hayObjeto(int habitacion){
-        boolean objetoEncontrado=false;
-        if(habitacion==0 && objetosMapa[habitacionActual][0]!=null){
-            objetoEncontrado=true;
-        }else if(habitacion==2 && objetosMapa[habitacionActual][1]!=null){
-            objetoEncontrado=true;
+
+    public static boolean hayObjeto(int habitacion) {
+        boolean objetoEncontrado = false;
+        if (habitacion == 0 && objetosMapa[habitacionActual][0] != null) {
+            objetoEncontrado = true;
+        } else if (habitacion == 2 && objetosMapa[habitacionActual][1] != null) {
+            objetoEncontrado = true;
         }
         return objetoEncontrado;
     }

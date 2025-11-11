@@ -86,9 +86,13 @@ public class Juego {
                     if (habitacionActual == 0 && hayObjeto(habitacionActual)) {
                         System.out.println("Has encontrado una lámpara de aceite.");
                         inventario[0] = "lamparaDeAceite";
-                    } else if (habitacionActual == 2 && hayObjeto((habitacionActual + 2))) {
-                        inventario[1] = "llave";
+                        objetosMapa[habitacionActual][0] = null; // esta línea quita el objeto del mapa
+                    } else if (habitacionActual == 2 && hayObjeto(habitacionActual)) {
                         System.out.println("Has encontrado una llave.");
+                        inventario[1] = "llave";
+                        objetosMapa[habitacionActual][0] = null;
+                    } else {
+                        System.out.println("No hay ningún objeto que puedas coger aquí.");
                     }
                     break;
                 case "ayuda":
@@ -130,22 +134,21 @@ public class Juego {
 
         }
 
+    }
         System.out.println("¡Gracias por jugar!");
         scanner.close();
-    }
-
 
     }
 
-    public static boolean hayObjeto ( int habitacion){
-        boolean objetoEncontrado = false;
-        if (habitacion == 0 && objetosMapa[habitacionActual][0] != null) {
-            objetoEncontrado = true;
-        } else if (habitacion == 2 && objetosMapa[habitacionActual][1] != null) {
-            objetoEncontrado = true;
+    public static boolean hayObjeto(int habitacion) {
+        for (int i = 0; i < objetosMapa[habitacion].length; i++) {
+            if (objetosMapa[habitacion][i] != null) {
+                return true;
+            }
         }
-        return objetoEncontrado;
+        return false;
     }
+
     public static void mostrarInventario(String[] inventario) {
         for (int i = 0; i < inventario.length; i++) {
             System.out.println(inventario[i]);

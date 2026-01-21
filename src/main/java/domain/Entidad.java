@@ -3,7 +3,7 @@ package domain;
 public abstract class Entidad {
 
     private String nombre;
-    private Entidad(){
+    protected Entidad(){
         this.nombre=getNombre();
     }
 

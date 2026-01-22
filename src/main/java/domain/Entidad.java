@@ -4,9 +4,10 @@ public abstract class Entidad {
 
     private String nombre;
     private String descripcion;
-    protected Entidad(){
-        this.nombre=getNombre();
-        this.descripcion=getDescripcion();
+
+    protected Entidad(String nombre, String descripcion){
+        this.nombre = nombre;
+        this.descripcion = descripcion;
     }
 
     public String getNombre() {
@@ -19,10 +20,12 @@ public abstract class Entidad {
     }
 
     public void setDescripcion(String descripcion) {
+
         this.descripcion = descripcion;
     }
 
     public void setNombre(String nombre) {
+
         this.nombre = nombre;
     }
 }

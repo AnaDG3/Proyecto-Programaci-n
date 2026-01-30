@@ -29,7 +29,7 @@ public class Habitacion extends Entidad{
             }
         }
 
-        if (!flag) {
+        if (flag) {
             throw new HabitacionException("No es posible añadir más objetos a esta habitación.");
         }
     }

@@ -2,6 +2,6 @@ package domain;
 
 public interface Abrible {
 
-    RespuestaAccion abrir(Llave llave);
+    RespuestaAccion abrir(LLave llave);
     boolean estaAbierto();
 }

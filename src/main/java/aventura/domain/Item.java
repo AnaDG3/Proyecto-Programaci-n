@@ -1,4 +1,4 @@
-package domain;
+package aventura.domain;
 
 public class Item extends Objeto {
 

@@ -1,4 +1,4 @@
-package domain;
+package aventura.domain;
 public  abstract class Mueble extends Entidad {
 
     public Mueble(String nombre, String descripcion) {

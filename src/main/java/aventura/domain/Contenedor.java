@@ -1,4 +1,4 @@
-package domain;
+package aventura.domain;
 
 public class Contenedor extends Mueble implements Abrible {
 

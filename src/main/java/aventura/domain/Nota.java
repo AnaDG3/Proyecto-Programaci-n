@@ -1,4 +1,4 @@
-package domain;
+package aventura.domain;
 
 public class Nota extends Item implements Leible{
 

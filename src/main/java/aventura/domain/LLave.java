@@ -1,4 +1,4 @@
-package domain;
+package aventura.domain;
 public class LLave extends Item {
 
     private String codigoSeguridad;

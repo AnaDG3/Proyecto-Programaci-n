@@ -1,4 +1,6 @@
-package domain;
+package aventura.domain;
+
+import java.util.Objects;
 
 public abstract class Entidad {
 
@@ -27,5 +29,17 @@ public abstract class Entidad {
     public void setNombre(String nombre) {
 
         this.nombre = nombre;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        //este método nos servirá para poder comprobar en la clase objeto si 2 objetos son iguales
+        if (!(o instanceof Entidad entidad)) return false;
+        return Objects.equals(nombre, entidad.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre);
     }
 }

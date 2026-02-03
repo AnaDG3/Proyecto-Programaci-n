@@ -29,7 +29,8 @@ public class Juego {
 
 
     // Los objetos que hay en cada habitación.
-    // TODO: (Skin) Rellenad esto con vuestros objetos
+
+
     private static String[][] objetosMapa = {
             {"lamparaDeAceite", null},           // Objetos en Habitación 0
             {null, null},           // Objetos en Habitación 1

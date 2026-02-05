@@ -35,8 +35,8 @@ public class Comandos {
                     System.out.println(e.getMessage());
                 }
             } else {
-                throw new RuntimeException("Objeto no encontrado"); /* si no entra en el bucle if, lanzaremos una excepción que
-               le indique al usuario que el objeto no se ha encontrado */
+                System.out.println ("Objeto no encontrado"); /* si no entra en el bucle if, le
+                 indicamos al usuario que el objeto no se ha encontrado */
             }
         }
     }
@@ -78,7 +78,7 @@ public class Comandos {
                         //si encuentra el objeto, le mostramos su descripción
                         System.out.println(habitacion.getObjetosHabitacion()[i].getDescripcion());
                     } else {
-                        throw new RuntimeException("Objeto no encontrado."); //si no lo encuentra, lanzamos una excepción
+                        System.out.println("Objeto no encontrado."); //si no lo encuentra
                     }
                 }
                 break;
@@ -91,7 +91,7 @@ public class Comandos {
                         System.out.println(jugador.getInventario()[i].getDescripcion());
                     } else {
                         //si no lo encuentra lanzaremos una excepción
-                        throw new RuntimeException("Objeto no encontrado.");
+                        System.out.println("Objeto no encontrado.");
                     }
                 }
         }

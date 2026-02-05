@@ -93,7 +93,7 @@ public class Juego {
                     Comandos.irIzquierda(jugador, habitaciones);
                     break;
                 case "mirar":
-                    habitaciones[jugador.getPosicion()].getDescripcion();
+                    System.out.println(habitaciones[jugador.getPosicion()].getDescripcion());
                     System.out.println("Objetos disponibles: ");
                     Comandos.mostrarObjetosHabitacionActual(habitaciones[jugador.getPosicion()]);
                     break;

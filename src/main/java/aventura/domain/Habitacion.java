@@ -7,11 +7,11 @@ public class Habitacion extends Entidad {
     private Objeto[] objetosHabitacion;
     private int maxObjetos; //será la capacidad máxima de objetos que tendrá una habitación
 
-    public Habitacion(String nombre, String descripcion) {
+    public Habitacion(String nombre, String descripcion, int maxObjetos) {
         super(nombre, descripcion); //Llama al constructor de la clase padre
         setMaxObjetos(getMaxObjetos()); /*esto nos permite introducir el máximo de objetos
       que tendrá la habitación */
-        this.objetosHabitacion = new Objeto[getMaxObjetos()];
+        this.objetosHabitacion = new Objeto[maxObjetos];
     }
 
     public int getMaxObjetos() {
@@ -24,10 +24,6 @@ public class Habitacion extends Entidad {
 
     public Objeto[] getObjetosHabitacion() {
         return objetosHabitacion;
-    }
-
-    public void setObjetosHabitacion(Objeto[] objetosHabitacion) {
-        this.objetosHabitacion = objetosHabitacion;
     }
 
     public void addObjeto(Objeto objeto, Habitacion habitacion) {

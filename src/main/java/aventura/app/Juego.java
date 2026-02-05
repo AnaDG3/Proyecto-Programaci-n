@@ -17,6 +17,9 @@ public class Juego {
 
         Jugador jugador = new Jugador(5);
         Habitacion[] habitaciones = new Habitacion[3];
+        habitaciones[0] = new Habitacion("salón", "Estás en un salón grande. Todo está muy oscuro, pero ves lo suficiente para percatarte de que hay una lampara de aceite.",3);
+        habitaciones[1]=new Habitacion(null, "Ahora te encuentras en una habitación con mucha humedad. Escuchas un sonido estraño que proviene de una habitación que está a tu IZQUIERDA.",4);
+        habitaciones[2]=new Habitacion(null, "Resulta que el ruido venía de un armario antigüo que se encuentra al fondo de la habitación.",3);
 
         Item lamparaAceite = new Item("lampara de aceite", "Una lampara de aceite. Te servirá para ver mejor.", true);
         Mueble estanteriaVacia = new Mueble("Estantería Vacía", "Una estantería vacía llena de polvo", true);
@@ -26,7 +29,6 @@ public class Juego {
         habitaciones[0].addObjeto(lamparaAceite, habitaciones[0]);
         habitaciones[0].addObjeto(estanteriaVacia, habitaciones[0]);
         habitaciones[0].addObjeto(mesaGrande, habitaciones[0]);
-        habitaciones[0].setDescripcion("Estás en un salón grande. Todo está muy oscuro, pero ves lo suficiente para percatarte de que hay una lampara de aceite.");
 
         TrozoLlave trozo1 = new TrozoLlave("Mango de una llave", "Es una llave, pero está incompleta", "222", true);
         Mueble silla = new Mueble("silla", "Una silla vieja y estropeada", true);
@@ -38,7 +40,6 @@ public class Juego {
         habitaciones[1].addObjeto(silla, habitaciones[1]);
         habitaciones[1].addObjeto(mesita, habitaciones[1]);
         habitaciones[1].addObjeto(estanteriaLibros, habitaciones[1]);
-        habitaciones[1].setDescripcion("Ahora te encuentras en una habitación con mucha humedad. Escuchas un sonido estraño que proviene de una habitación que está a tu IZQUIERDA.");
 
         TrozoLlave trozo2 = new TrozoLlave("Parte inferior de una llave", "La parte inferior de una llave. A lo mejor puede ser útil", "222", true);
         Nota nota = new Nota("Nota", "Una nota escrita en papel viejo", "Si estás leyendo esta nota, quiero advertirte que" +
@@ -49,7 +50,6 @@ public class Juego {
         habitaciones[2].addObjeto(trozo2, habitaciones[2]);
         habitaciones[2].addObjeto(nota, habitaciones[2]);
         habitaciones[2].addObjeto(estanteriaLibros, habitaciones[2]);
-        habitaciones[1].setDescripcion("Resulta que el ruido venía de un armario antigüo que se encuentra al fondo de la habitación.");
 
         System.out.println("¡Bienvenido a 'TU PROPIA AVENTURA'!");
         System.out.println("------------------------------------------");
@@ -88,8 +88,10 @@ public class Juego {
                     break;
                 case "ir derecha":
                     Comandos.irDerecha(jugador, habitaciones);
+                    break;
                 case "ir izquierda": //igual que ir derecha, pero aquí la habitación donde no se puede ir a la izquierda es la 0
                     Comandos.irIzquierda(jugador, habitaciones);
+                    break;
                 case "mirar":
                     habitaciones[jugador.getPosicion()].getDescripcion();
                     System.out.println("Objetos disponibles: ");

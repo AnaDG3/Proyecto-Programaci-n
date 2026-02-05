@@ -2,14 +2,15 @@ package aventura.domain;
 
 import Excepciones.HabitacionException;
 
-public class Habitacion extends Entidad{
+public class Habitacion extends Entidad {
     //creamos un array de objetos que serán todos los objetos que contenga la habitación
     private Objeto[] objetosHabitacion;
     private int maxObjetos; //será la capacidad máxima de objetos que tendrá una habitación
-    public Habitacion(String nombre, String descripcion){
+
+    public Habitacion(String nombre, String descripcion) {
         super(nombre, descripcion); //Llama al constructor de la clase padre
         setMaxObjetos(getMaxObjetos()); /*esto nos permite introducir el máximo de objetos
-        que tendrá la habitación */
+      que tendrá la habitación */
         this.objetosHabitacion = new Objeto[getMaxObjetos()];
     }
 
@@ -21,7 +22,15 @@ public class Habitacion extends Entidad{
         this.maxObjetos = maxObjetos;
     }
 
-    public void addObjeto(Objeto objeto, Habitacion habitacion){
+    public Objeto[] getObjetosHabitacion() {
+        return objetosHabitacion;
+    }
+
+    public void setObjetosHabitacion(Objeto[] objetosHabitacion) {
+        this.objetosHabitacion = objetosHabitacion;
+    }
+
+    public void addObjeto(Objeto objeto, Habitacion habitacion) {
         //con este método podremos añadir nuevos objetos a la habitación
         boolean flag = true;
         for (int i = 0; i < habitacion.getMaxObjetos() && flag; i++) {
@@ -29,8 +38,8 @@ public class Habitacion extends Entidad{
             if (this.objetosHabitacion[i] == null) {
                 objetosHabitacion[i] = objeto;
                 flag = false;
-                /*si la condición del if se cumple, el objeto se añadiría a la habitación
-                y luego se saldría del bucle for */
+              /*si la condición del if se cumple, el objeto se añadiría a la habitación
+              y luego se saldría del bucle for */
             }
         }
 

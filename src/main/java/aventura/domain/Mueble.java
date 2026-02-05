@@ -1,7 +1,8 @@
 package aventura.domain;
-public  abstract class Mueble extends Entidad {
 
-    public Mueble(String nombre, String descripcion) {
-        super(nombre,descripcion);
+public class Mueble extends Objeto {
+
+    public Mueble(String nombre, String descripcion, boolean visible) {
+        super(nombre, descripcion, visible);
     }
 }

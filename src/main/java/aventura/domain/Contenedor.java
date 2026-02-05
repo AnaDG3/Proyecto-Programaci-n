@@ -3,8 +3,8 @@ package aventura.domain;
 public class Contenedor extends Mueble implements Abrible {
 
 
-    public Contenedor(String nombre, String descripcion, String codigoNecesario, Objeto objetoInterno){
-        super(nombre, descripcion);
+    public Contenedor(String nombre, String descripcion, String codigoNecesario, Objeto objetoInterno, boolean visible) {
+        super(nombre, descripcion, visible);
         this.codigoNecesario = codigoNecesario;
         this.objetoInterno = objetoInterno;
         this.abierto = false;
@@ -15,15 +15,16 @@ public class Contenedor extends Mueble implements Abrible {
     private boolean abierto = false;
 
     @Override
-    public RespuestaAccion abrir(LLave lLave){
+    public RespuestaAccion abrir(LLave lLave) {
         //Comprobar si ya esta abierto
-        if (this.abierto){
+        if (this.abierto) {
             return new RespuestaAccion(false, "El contenedor ya está abierto.");
         }
         //Abrir el cofre/caja fuerte
         if (codigoNecesario == null) {
             this.abierto = true;
             String nombreObj = (this.objetoInterno != null) ? this.objetoInterno.getNombre() : "nada";
+            this.objetoInterno.visible = true;
             this.objetoInterno = null; // Vaciamos el contenedor
             return new RespuestaAccion(true, "Has abierto el cajón y has encontrado: " + nombreObj);
         }
@@ -31,6 +32,7 @@ public class Contenedor extends Mueble implements Abrible {
         if (lLave != null && lLave.getCodigoSeguridad().equals(this.codigoNecesario)) {
             this.abierto = true;
             String nombreObj = (this.objetoInterno != null) ? this.objetoInterno.getNombre() : "nada";
+            this.objetoInterno.visible = true;
             this.objetoInterno = null; // Vaciamos el contenedor
             return new RespuestaAccion(true, "!Click; Has usado la llave correcta y has encontrado: " + nombreObj);
 
@@ -40,7 +42,7 @@ public class Contenedor extends Mueble implements Abrible {
     }
 
     @Override
-    public boolean estaAbierto(){
+    public boolean estaAbierto() {
         return this.abierto;
     }
 }

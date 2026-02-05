@@ -1,9 +1,9 @@
 package aventura.domain;
 
-public class Item extends Objeto implements Inventariable{
+public class Item extends Objeto {
 
-    public Item(String nombre, String descripcion, boolean visible){
-        super(nombre,descripcion, visible);
+    public Item(String nombre, String descripcion, boolean visible) {
+        super(nombre,descripcion,visible);
 
     }
 }

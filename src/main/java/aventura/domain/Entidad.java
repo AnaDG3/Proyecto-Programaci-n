@@ -7,7 +7,7 @@ public abstract class Entidad {
     private String nombre;
     private String descripcion;
 
-    protected Entidad(String nombre, String descripcion){
+    protected Entidad(String nombre, String descripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
